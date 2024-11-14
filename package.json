@@ -1,6 +1,6 @@
 {
   "name": "vis-powerdaemon",
-  "version": "1.0.0",
+  "version": "1.1.1",
   "description": "A workflow enabling your GitHub Action to send requests to a Pterodactyl panel-compatible API",
   "main": "index.js",
   "scripts": {
