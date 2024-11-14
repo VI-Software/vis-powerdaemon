@@ -18,35 +18,22 @@ This GitHub Action allows you to execute power actions (start, stop, restart, ki
 ### Action Configuration
 
 ```yaml
-name: "vis-powerdaemon"
-description: "Execute power actions on a Pterodactyl Panel instance or compatible API."
-author: "VI Software"
+name: Server Power Control
+on:
+  # Trigger example - customize based on your needs
+  workflow_dispatch:
 
-inputs:
-    PANEL_URL:
-        description: "URL of the Pterodactyl panel"
-        required: true
-
-    API_KEY:
-        description: "Bearer token for panel authorization"
-        required: true
-
-    SERVER_ID:
-        description: "ID of the server to perform actions on"
-        required: true
-
-    POWER_ACTION:
-        description: 'Power action to perform (options: "start", "stop", "restart", "kill")'
-        required: false
-        default: "restart"
-
-runs:
-    using: "node20"
-    main: "dist/index.js"
-
-branding:
-    icon: "power"
-    color: "green"
+jobs:
+  power-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Execute Power Action
+        uses: vi-software/vis-powerdaemon@v1
+        with:
+          PANEL_URL: ${{ secrets.PANEL_URL }}
+          API_KEY: ${{ secrets.API_KEY }}
+          SERVER_ID: ${{ secrets.SERVER_ID }}
+          POWER_ACTION: restart  # Optional, defaults to "restart"
 ```
 
 ### Development
