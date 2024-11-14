@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Execute Power Action
-        uses: vi-software/vis-powerdaemon@v1
+        uses: VI-Software/vis-powerdaemon@v1.0
         with:
           PANEL_URL: ${{ secrets.PANEL_URL }}
           API_KEY: ${{ secrets.API_KEY }}
