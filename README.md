@@ -20,9 +20,10 @@ This GitHub Action allows you to execute power actions (start, stop, restart, ki
 ```yaml
 name: Server Power Control
 on:
-  # Trigger example - customize based on your needs
-  workflow_dispatch:
-
+    push:
+        branches:
+            - main # Replace with the branch name
+            
 jobs:
   power-action:
     runs-on: ubuntu-latest
